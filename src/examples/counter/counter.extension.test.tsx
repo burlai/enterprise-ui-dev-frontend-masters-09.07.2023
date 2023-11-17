@@ -8,6 +8,7 @@ test('it should render the component', () => {
 });
 
 test('it should increment when the "Increment" button is pressed', async () => {
+  // Kostia: usage of a custom made render util:
   const { user } = render(<Counter />);
 
   const currentCount = screen.getByTestId('current-count');
