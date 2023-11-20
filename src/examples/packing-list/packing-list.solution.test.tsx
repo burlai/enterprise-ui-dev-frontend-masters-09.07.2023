@@ -18,6 +18,7 @@ it('has an input field for a new item', () => {
 it('has a "Add New Item" button that is disabled when the input is empty', () => {
   render(<PackingList />);
   const newItemInput = screen.getByLabelText('New Item Name');
+  // Kostia: getByRole is getting elements of DOM only by text. If there will be an emoji, it will still pick just "Add New Item" text
   const addNewItemButton = screen.getByRole('button', { name: 'Add New Item' });
 
   expect(newItemInput).toHaveValue('');
@@ -47,7 +48,7 @@ it('adds a new item to the unpacked item list when the clicking "Add New Item"',
   expect(screen.getByLabelText('MacBook Pro')).not.toBeChecked();
 });
 
-// This test is sublty flawed.
+// This test is subtly flawed.
 it('removes an item when the remove button is clicked', async () => {
   const { user } = render(<PackingList />);
 
